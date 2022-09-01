@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WeCall</title>
+</head>
+<body>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Logo(props) {
+            return (
+                <div id="header">
+                    <img src="WeCall-Logo.png" width="200" />
+                    <h2 className="titulo">{props.titulo}</h2>
+                </div>
+            );
+        }
+
+        function Numero(props) {
+            return <article>
+                <h2>{props.num + ' ' + '-' +  ' ' + props.status}</h2>
+                <p>{props.nota}</p>
+            </article>;
+        }
+
+        function App() {
+            return (
+                <div>
+                    <Logo titulo="Call center - Ligamos pra você" />
+                    <div id="main">
+                        <h1>Lista de Números</h1>
+                        <section id="lista">
+                            <Numero num="999999999" status="Não Existe" nota="Ligar novamente em 6 meses" />
+                            <Numero num="988888888" status="Caixa Postal" nota="Ligar novamente em 2 Horas" />
+                            <Numero num="977777777" status="Atendeu" nota="Ao atender conversamos sobre..." />
+                        </section>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        );
+
+    </script>
+</body>
+</html>
